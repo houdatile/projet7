@@ -28,8 +28,8 @@ def request_prediction(model_uri, data):
 
 
 def main():
-    api_pred = "http://127.0.0.1:8000/predict"
-    api_interpre = "http://127.0.0.1:8000/interpretability"
+    api_pred = f"http://127.0.0.1:8000/predict"
+    api_interpre = f"http://127.0.0.1:8000/interpretability"
 
 
     st.title('Bank credit Prediction')
