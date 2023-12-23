@@ -16,7 +16,7 @@ def request_prediction(model_uri, data):
 
     data_json = {'id_client': data}
     response = requests.request(
-        method='POST', headers=headers, url=model_uri, json=data_json)
+        method='POST', headers=headers, url=model_uri, json=data_json, verify=False)
 
     if response.status_code != 200:
         raise Exception(
@@ -46,7 +46,7 @@ def main():
     
     predict_btn = st.button('Prédire', on_click=click_button)
     if st.session_state.clicked:
-        pred = request_prediction(api_pred, client_choice, verify=False)
+        pred = request_prediction(api_pred, client_choice)
         if pred['classe'] == 0:
             st.write(
             "The credit is accepted")
