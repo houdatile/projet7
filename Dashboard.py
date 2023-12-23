@@ -46,7 +46,7 @@ def main():
     
     predict_btn = st.button('Prédire', on_click=click_button)
     if st.session_state.clicked:
-        pred = request_prediction(api_pred, client_choice)
+        pred = request_prediction(api_pred, client_choice, verify=False)
         if pred['classe'] == 0:
             st.write(
             "The credit is accepted")
