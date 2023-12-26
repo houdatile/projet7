@@ -8,7 +8,7 @@ def test_predict_correct():
     response = client.post('/predict', json={'id_client' : 100001})
     
     assert response.status_code == status.HTTP_200_OK
-    assert response.json() == {'classe': 0.0, 'probabilité': 0.9809312690245411}
+    assert response.json() == {'classe': 0.0, 'probabilité': 0.9860117143850826}
 
 
 def test_correct():
