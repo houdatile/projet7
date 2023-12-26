@@ -15,4 +15,4 @@ shap==0.43.0
 streamlit==1.29.0
 tqdm==4.65.0
 uvicorn==0.24.0.post1
-httpx
+httpx==0.25.2
