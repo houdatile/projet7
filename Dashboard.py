@@ -76,13 +76,7 @@ def main():
         
         
         st.image(str(client_choice)+'.png')
-        
-        # select multiple
-        
-        #var2 = st.sidebar.selectbox(
-        #    'variable 2',
-        #    data.columns)
-        
+    
         var = st.sidebar.multiselect(
             'select variables',
             data.columns)
@@ -90,67 +84,12 @@ def main():
         index = data[data.SK_ID_CURR == client_choice].index
         
         #client2 = data.loc[index, var2][index[0]]
-        columns = data[var].columns
-        
-        if len(data[var].columns) == 0:
-            st.write('no variable selected')
-        elif len(data[var].columns) == 1:
-            client = data.loc[index, var[0]][index[0]]
-            fig1 = px.histogram(data[var], title=columns[0])
+
+        for i in range(len(data[var].columns)):
+            client = data.loc[index, var[i]][index[0]]
+            fig1 = px.histogram(data[var[i]])
             fig1.add_vline(x=client, annotation_text="client")
             st.plotly_chart(fig1)
-        elif len(data[var].columns) == 2:
-            client = data.loc[index, var[0]][index[0]]
-            st.write(str(data[var].columns))
-            fig1 = px.histogram(data[var[0]], title=columns[0])
-            fig1.add_vline(x=client, annotation_text="client")
-            st.plotly_chart(fig1)
-            
-            client1 = data.loc[index, var[1]][index[0]]
-            fig2 = px.histogram(data[var[1]], title=columns[1])
-            fig2.add_vline(x=client1, annotation_text="client")
-            st.plotly_chart(fig2)
-            
-        else:
-            client = data.loc[index, var[0]][index[0]]
-            st.write(str(data[var].columns))
-            fig1 = px.histogram(data[var[0]], title=columns[0])
-            fig1.add_vline(x=client, annotation_text="client")
-            st.plotly_chart(fig1)
-            
-            client1 = data.loc[index, var[1]][index[0]]
-            fig2 = px.histogram(data[var[1]], title=columns[1])
-            fig2.add_vline(x=client1, annotation_text="client")
-            st.plotly_chart(fig2)
-            st.write("can not display other variables")
-            
-            
-        
-
-        #fig2 = px.histogram(data[var2])
-        #fig2.add_vline(x=client2, annotation_text="client")
-        #st.plotly_chart(fig2)
-        
-        
-        
-        
-        
-        
-            
-            
-    
-            
-# faire de jauge avec les probabil avec plotli
-
-# deploiement 
-
-# multiselectionaire de variable qui permet d'une pre
-
-# API interpretabilité local 
-
-# afficher les distri des clients 
-
-# client valeur à mettre en exsage du client pour   
     
 
 if __name__ == '__main__':
